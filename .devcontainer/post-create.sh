@@ -39,6 +39,12 @@ else
   echo "WARN: claude not on PATH — skipping plugin install"
 fi
 
+# --- Azure CLI (optional, install if needed) ---
+if ! command -v az &> /dev/null; then
+  echo "=== Installing Azure CLI ==="
+  curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash 2>&1 | tail -3 || echo "WARN: Azure CLI install failed — install manually if needed"
+fi
+
 echo "=== Dev container ready! ==="
 echo "Workspace: ${WORKSPACE_DIR}"
 echo "Tools: pandoc, python-pptx, openpyxl, pandas, xlsxwriter, BMAD Method, Claude Code"
