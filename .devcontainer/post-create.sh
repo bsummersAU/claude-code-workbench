@@ -26,7 +26,7 @@ pip3 install --break-system-packages python-pptx openpyxl pandas xlsxwriter 2>&1
 # --- BMAD Method ---
 echo "=== Installing BMAD Method ==="
 if command -v npx &> /dev/null; then
-  npx bmad-method install --directory "${WORKSPACE_DIR}" --modules bmm --tools claude-code --yes 2>&1 | tail -20 || echo "WARN: BMAD install failed — run 'npx bmad-method install' manually"
+  npx --yes bmad-method install --directory "${WORKSPACE_DIR}" --modules bmm --tools claude-code --yes 2>&1 | tail -20 || echo "WARN: BMAD install failed — run 'npx bmad-method install' manually"
 else
   echo "WARN: npx not found — skipping BMAD install. Install Node.js first, then run 'npx bmad-method install'"
 fi
