@@ -1,86 +1,96 @@
 import MurdochLogo from './MurdochLogo';
 
-const NAV_LINKS = [
-  'Study',
-  'Research',
-  'Collaborate',
-  'Explore',
-  'Current Students',
-  'Alumni',
-];
+const UTILITY_LINKS = ['Current students', 'Alumni', 'Staff', 'Library', 'Contact'];
+const PRIMARY_NAV_ITEMS = ['Study', 'Research', 'Collaborate', 'Explore'];
+
+function SearchIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <circle cx="9" cy="9" r="6" stroke="#000000" strokeWidth="1.5" />
+      <path d="M13.5 13.5L17 17" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+function ChevronDown() {
+  return (
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M4 6l4 4 4-4" stroke="#000000" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function SearchField() {
+  return (
+    <div className="flex items-center gap-2 px-4 py-3 border border-black rounded-lg bg-white shrink-0 w-[189px]">
+      <span className="flex-1 font-semibold text-[18px] leading-[1.2] text-[#A9A9A9] whitespace-nowrap">
+        Search
+      </span>
+      <SearchIcon />
+    </div>
+  );
+}
 
 export default function Nav({ onReset, showReset = false }) {
   return (
-    <nav style={{
-      position: 'sticky', top: 0, zIndex: 50, width: '100%',
-      background: 'white', borderBottom: '1px solid #e5e7eb',
-      boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
-    }}>
-      <div style={{
-        maxWidth: 1200, margin: '0 auto', padding: '0 20px',
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-        height: 60,
-      }}>
-        {/* Logo — clickable to go home */}
+    <nav className="sticky top-0 z-50 w-full flex flex-col">
+
+      {/* ── Utility bar ─────────────────────────────────────────────────── */}
+      <div className="bg-white border-b border-[#D3D3D3] flex items-center justify-end gap-6 px-8 py-4 w-full">
+        {UTILITY_LINKS.map(link => (
+          <a
+            key={link}
+            href="#"
+            className="font-medium text-body-md text-black whitespace-nowrap hover:text-primary-600 transition-colors"
+          >
+            {link}
+          </a>
+        ))}
+        {/* Vertical divider */}
+        <div className="w-px h-5 bg-[#D3D3D3] shrink-0" aria-hidden="true" />
+        <SearchField />
+      </div>
+
+      {/* ── Primary nav bar ─────────────────────────────────────────────── */}
+      <div className="bg-white shadow-brand flex items-center gap-6 px-8 py-6 w-full">
+
+        {/* Logo */}
         <button
           onClick={onReset}
-          style={{ background: 'none', border: 'none', padding: 0, cursor: onReset ? 'pointer' : 'default', lineHeight: 0 }}
+          className="shrink-0 border-none bg-transparent p-0 leading-none cursor-pointer"
           aria-label="Murdoch University home"
+          style={{ cursor: onReset ? 'pointer' : 'default' }}
         >
-          <MurdochLogo height={36} />
+          <MurdochLogo height={40} />
         </button>
 
-        {/* Nav links — hidden on mobile */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 24 }} className="hidden md:flex">
-          {NAV_LINKS.map(link => (
-            <a key={link} href="#" style={{
-              fontSize: 13, fontWeight: 500, color: '#574f46',
-              textDecoration: 'none', transition: 'color 0.15s',
-            }}
-              onMouseEnter={e => (e.target.style.color = '#C8203A')}
-              onMouseLeave={e => (e.target.style.color = '#616161')}
+        {/* Nav items */}
+        <div className="flex-1 flex items-center justify-end gap-6">
+          {PRIMARY_NAV_ITEMS.map(item => (
+            <a
+              key={item}
+              href="#"
+              className="flex items-center gap-2 font-semibold text-[18px] leading-[1.2] text-black whitespace-nowrap hover:text-primary-600 transition-colors"
             >
-              {link}
+              {item}
+              <ChevronDown />
             </a>
           ))}
-        </div>
 
-        {/* Right actions */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           {showReset && (
             <button
               onClick={onReset}
-              style={{
-                display: 'flex', alignItems: 'center', gap: 6,
-                padding: '6px 12px', borderRadius: 8,
-                border: '1px solid #e5e7eb', background: 'white',
-                fontSize: 12, fontWeight: 600, color: '#574f46',
-                cursor: 'pointer', transition: 'all 0.2s',
-                fontFamily: 'inherit',
-              }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = '#C8203A'; e.currentTarget.style.color = '#C8203A'; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = '#E0E0E0'; e.currentTarget.style.color = '#616161'; }}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutrals-grey-300 bg-white text-xs font-semibold text-neutrals-grey-700 cursor-pointer hover:border-primary-600 hover:text-primary-600 transition-colors font-sans"
               aria-label="Return to home"
             >
-              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               Back to home
             </button>
           )}
-          <a href="#" style={{
-            display: 'inline-flex', alignItems: 'center',
-            padding: '8px 16px', borderRadius: 8,
-            background: '#C8203A', color: 'white',
-            fontSize: 13, fontWeight: 600, textDecoration: 'none',
-            transition: 'background 0.2s',
-          }}
-            onMouseEnter={e => (e.target.style.background = '#8C0E26')}
-            onMouseLeave={e => (e.target.style.background = '#C8203A')}
-          >
-            Apply now
-          </a>
         </div>
+
       </div>
     </nav>
   );

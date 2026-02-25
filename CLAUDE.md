@@ -175,6 +175,16 @@ When creating documents, place them in `_bmad-output/` unless I specify otherwis
 
 ---
 
+## Active App: murdoch-agent
+
+- Path: `murdoch-agent/`
+- Stack: React + Vite + Tailwind
+- Tailwind config has Murdoch brand tokens — prefer those over raw hex values
+- Font: Poppins (configured as `font-sans`)
+- Component dir: `murdoch-agent/src/components/`
+
+---
+
 ## Reminders
 
 - You ARE in a container. Act like it. Install things. Run things. Be autonomous.
