@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import Nav from './components/Nav';
+import Acknowledgement from './components/Acknowledgement';
 import MurdochLogo from './components/MurdochLogo';
 import MessageBubble from './components/MessageBubble';
 import TypingIndicator from './components/TypingIndicator';
@@ -393,19 +394,6 @@ function CTABanner({ onSend }) {
 function Footer() {
   return (
     <footer>
-      {/* Acknowledgement banner */}
-      <div style={{ background: '#0b1213', padding: '24px 0' }}>
-        <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px', display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-          <div style={{ display: 'flex', gap: 10, flexShrink: 0 }}>
-            <img src="https://cdn.murdoch.edu.au/mu-images/default-source/global/flag-aboriginal.png?sfvrsn=82c980db_1" alt="Aboriginal flag" style={{ height: 28, borderRadius: 2 }} onError={e => e.target.style.display='none'} />
-            <img src="https://cdn.murdoch.edu.au/mu-images/default-source/global/flag-torres-straits.png?sfvrsn=6c7a10dd_1" alt="Torres Strait Islander flag" style={{ height: 28, borderRadius: 2 }} onError={e => e.target.style.display='none'} />
-          </div>
-          <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 12, lineHeight: 1.6, margin: 0 }}>
-            Murdoch University acknowledges the Traditional Custodians throughout Western Australia and their continuing connection to the land, waters and community. We pay our respects to all members of the Aboriginal communities and their cultures; and to Elders both past and present.
-          </p>
-        </div>
-      </div>
-
       {/* Main footer */}
       <div style={{ background: '#1a2425', padding: '52px 0 36px' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 24px' }}>
@@ -622,6 +610,7 @@ export default function App() {
           <TrustStrip />
           <ExploreTiles onSend={handleSend} />
           <CTABanner onSend={handleSend} />
+          <Acknowledgement />
           <Footer />
         </>
       ) : (
