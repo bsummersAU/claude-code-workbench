@@ -81,20 +81,27 @@ export default function MessageBubble({ message }) {
     );
   }
 
-  const { type, text, chips, courses, steps, infoBlocks } = message;
+  const { type, text, chips, courses, steps, infoBlocks, streaming } = message;
 
   return (
     <div className="animate-fade-up" style={{ display: 'flex', gap: 12 }}>
       <AgentAvatar />
       <div style={{ flex: 1, minWidth: 0 }}>
-        {text && (
+        {(text !== undefined) && (
           <div style={{
             display: 'inline-block', padding: '10px 16px',
             borderRadius: '4px 18px 18px 18px',
             background: '#F5F5F5', color: '#212121',
             fontSize: 14, lineHeight: 1.6, marginBottom: 12, maxWidth: '100%',
           }}>
-            {parseMarkdown(text)}
+            {text ? parseMarkdown(text) : null}
+            {streaming && (
+              <span style={{
+                display: 'inline-block', width: 2, height: '1em',
+                background: '#C8203A', marginLeft: 1, verticalAlign: 'text-bottom',
+                animation: 'blink 1s step-end infinite',
+              }} />
+            )}
           </div>
         )}
 

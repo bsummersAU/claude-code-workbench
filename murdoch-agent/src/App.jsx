@@ -4,7 +4,7 @@ import Acknowledgement from './components/Acknowledgement';
 import MurdochLogo from './components/MurdochLogo';
 import MessageBubble from './components/MessageBubble';
 import TypingIndicator from './components/TypingIndicator';
-import { FEATURED_PROMPTS, getAgentResponse } from './data/responses';
+import { FEATURED_PROMPTS } from './data/responses';
 
 const BRAND = '#C8203A';      // Primary/Murdoch Red (600)
 const BRAND_DARK = '#8C0E26'; // Primary/800
@@ -587,18 +587,77 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function handleSend(text) {
-    if (!text.trim()) return;
+  async function handleSend(text) {
+    if (!text.trim() || isTyping) return;
     if (!started) setStarted(true);
+
     const userMsg = makeMsg('user', { text });
-    setMessages(prev => [...prev, userMsg]);
+    const updatedMessages = [...messages, userMsg];
+    setMessages(updatedMessages);
+    streamResponse(updatedMessages);
+  }
+
+  async function streamResponse(currentMessages) {
     setIsTyping(true);
-    const delay = 700 + Math.random() * 900;
-    setTimeout(() => {
-      setIsTyping(false);
-      const response = getAgentResponse(text);
-      setMessages(prev => [...prev, makeMsg('agent', response)]);
-    }, delay);
+
+    // Add an empty agent message to stream into
+    const agentMsgId = ++msgId;
+    const agentMsg = { id: agentMsgId, role: 'agent', type: 'text', text: '', streaming: true };
+
+    // Wait briefly then swap typing indicator for the streaming bubble
+    await new Promise(r => setTimeout(r, 300));
+    setIsTyping(false);
+    setMessages(prev => [...prev, agentMsg]);
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: currentMessages }),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop();
+
+        for (const line of lines) {
+          if (!line.startsWith('data: ')) continue;
+          const data = line.slice(6).trim();
+          if (data === '[DONE]') break;
+          try {
+            const { text: chunk, error } = JSON.parse(data);
+            if (error) throw new Error(error);
+            if (chunk) {
+              setMessages(prev => prev.map(m =>
+                m.id === agentMsgId ? { ...m, text: m.text + chunk } : m
+              ));
+            }
+          } catch { /* skip malformed chunks */ }
+        }
+      }
+    } catch (err) {
+      console.error('Stream error:', err);
+      setMessages(prev => prev.map(m =>
+        m.id === agentMsgId
+          ? { ...m, text: "Sorry, I'm having trouble connecting right now. Please try again in a moment." }
+          : m
+      ));
+    } finally {
+      // Remove streaming cursor
+      setMessages(prev => prev.map(m =>
+        m.id === agentMsgId ? { ...m, streaming: false } : m
+      ));
+    }
   }
 
   return (

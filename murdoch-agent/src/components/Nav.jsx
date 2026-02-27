@@ -77,18 +77,6 @@ export default function Nav({ onReset, showReset = false }) {
             </a>
           ))}
 
-          {showReset && (
-            <button
-              onClick={onReset}
-              className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-neutrals-grey-300 bg-white text-xs font-semibold text-neutrals-grey-700 cursor-pointer hover:border-primary-600 hover:text-primary-600 transition-colors font-sans"
-              aria-label="Return to home"
-            >
-              <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Back to home
-            </button>
-          )}
         </div>
 
       </div>
