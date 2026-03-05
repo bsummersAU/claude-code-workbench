@@ -1,0 +1,277 @@
+/* Murdoch University Pitch Deck — Global Styles */
+
+:root {
+  --mu-red:      #C8203A;
+  --mu-dark-red: #8C0E26;
+  --mu-dark:     #212121;
+  --mu-aqua:     #009C98;
+  --mu-purple:   #4D3299;
+  --mu-orange:   #FF8400;
+  --mu-pink:     #EE5590;
+  --mu-grey-100: #F5F5F5;
+  --mu-grey-300: #E0E0E0;
+  --mu-grey-500: #9E9E9E;
+  --mu-grey-700: #616161;
+}
+
+.slidev-layout {
+  font-family: 'Poppins', system-ui, sans-serif;
+}
+
+/* ── Title bar ─────────────────────────────────────────────────────────────── */
+.slide-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--mu-dark);
+  padding-bottom: 0.35rem;
+  border-bottom: 3px solid var(--mu-red);
+  margin-bottom: 0.85rem;
+  line-height: 1.2;
+}
+
+/* ── Cards ─────────────────────────────────────────────────────────────────── */
+.mu-card {
+  background: var(--mu-grey-100);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.mu-card-header {
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--mu-grey-300);
+}
+
+.mu-card ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 0.72rem;
+  color: var(--mu-dark);
+  line-height: 1.5;
+}
+
+.mu-card ul li {
+  padding: 0.2rem 0;
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.mu-card ul li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: inherit;
+}
+
+/* ── Data table ────────────────────────────────────────────────────────────── */
+.mu-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.72rem;
+}
+
+.mu-table th {
+  background: var(--mu-dark);
+  color: white;
+  padding: 0.4rem 0.65rem;
+  text-align: left;
+  font-weight: 600;
+  font-size: 0.7rem;
+}
+
+.mu-table td {
+  padding: 0.35rem 0.65rem;
+  vertical-align: top;
+  border-bottom: 1px solid var(--mu-grey-300);
+  line-height: 1.4;
+}
+
+.mu-table tr:nth-child(odd) td {
+  background: var(--mu-grey-100);
+}
+
+.mu-table td:first-child {
+  font-weight: 600;
+  color: var(--mu-dark);
+  width: 28%;
+}
+
+/* ── Screenshot placeholder ────────────────────────────────────────────────── */
+.screenie {
+  background: var(--mu-grey-100);
+  border: 1.5px dashed var(--mu-grey-300);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mu-grey-500);
+  font-size: 0.68rem;
+  font-style: italic;
+  text-align: center;
+  padding: 1rem;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ── Agenda rows ───────────────────────────────────────────────────────────── */
+.agenda-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--mu-grey-300);
+}
+
+.agenda-row:last-child {
+  border-bottom: none;
+}
+
+.agenda-num {
+  background: var(--mu-red);
+  color: white;
+  font-weight: 700;
+  font-size: 0.7rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 0.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.agenda-heading {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--mu-dark);
+}
+
+.agenda-sub {
+  font-size: 0.75rem;
+  color: var(--mu-grey-700);
+}
+
+/* ── Swimlane / roadmap ────────────────────────────────────────────────────── */
+.swimlane-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.65rem;
+  table-layout: fixed;
+}
+
+.swimlane-table td,
+.swimlane-table th {
+  border: 1px solid var(--mu-grey-300);
+  padding: 0.3rem 0.4rem;
+  vertical-align: top;
+  line-height: 1.35;
+}
+
+.swimlane-table .lane-label {
+  font-weight: 700;
+  font-size: 0.68rem;
+  background: var(--mu-grey-100);
+  width: 12%;
+}
+
+.swimlane-table .phase-header {
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  font-size: 0.72rem;
+  padding: 0.35rem;
+}
+
+.swimlane-milestone {
+  font-weight: 700;
+  font-size: 0.6rem;
+  color: var(--mu-dark);
+  text-align: center;
+  margin-top: 0.3rem;
+}
+
+/* ── Stat callout boxes ────────────────────────────────────────────────────── */
+.stat-box {
+  background: var(--mu-grey-100);
+  border-radius: 0.5rem;
+  padding: 1.1rem 1.25rem;
+  border-top: 4px solid;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.stat-number {
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-size: 0.78rem;
+  color: var(--mu-dark);
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+.stat-source {
+  font-size: 0.62rem;
+  color: var(--mu-grey-500);
+  font-style: italic;
+}
+
+/* ── Two-col utility ───────────────────────────────────────────────────────── */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+  height: 100%;
+}
+
+/* ── Phase cards ───────────────────────────────────────────────────────────── */
+.phase-tag {
+  display: inline-block;
+  color: white;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ── Section divider ───────────────────────────────────────────────────────── */
+.section-num {
+  font-size: 8rem;
+  font-weight: 700;
+  color: #2D2D2D;
+  position: absolute;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 1;
+  user-select: none;
+}
+
+/* ── Dark panel (commitment right col) ─────────────────────────────────────── */
+.dark-panel {
+  background: var(--mu-dark);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  height: 100%;
+  box-sizing: border-box;
+  border-top: 4px solid var(--mu-red);
+}
+
+.dark-panel .mu-card-header {
+  color: var(--mu-red);
+  border-bottom-color: #444;
+}
+
+.dark-panel ul {
+  color: white;
+}
