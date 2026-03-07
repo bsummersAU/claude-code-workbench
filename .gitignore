@@ -6,6 +6,7 @@ _bmad-output/
 # === Node ===
 node_modules/
 dist/
+*-dist/
 .output/
 .nuxt/
 .vite/
