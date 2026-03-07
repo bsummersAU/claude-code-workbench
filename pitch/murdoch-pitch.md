@@ -3,6 +3,7 @@ theme: "@insight-services-apac/slidev-theme-insight"
 title: AI-Powered Prospective Student Experience
 titleTemplate: '%s — Murdoch University'
 colorSchema: light
+canvasWidth: 980
 fonts:
   sans: Poppins
   weights: '400,600,700'
@@ -23,7 +24,7 @@ layout: default
 variant: 2
 ---
 
-# Today's Agenda
+# Today's agenda
 
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:0.75rem">
 
@@ -35,11 +36,11 @@ What the research tells us about the prospective student journey
 A working AI agent built for Murdoch, ready to demo
 </ContentCard>
 
-<ContentCard title="03 — From PoC to Production" color="#582873">
+<ContentCard title="03 — From PoC to Production" color="#D30C55">
 Federating knowledge and building a platform
 </ContentCard>
 
-<ContentCard title="04 — The Strategic Case" color="#D40E8C">
+<ContentCard title="04 — The Strategic Case" color="#5990F0">
 Why this matters commercially and architecturally
 </ContentCard>
 
@@ -66,37 +67,30 @@ layout: default
 variant: 2
 ---
 
-# Your Website Is Working Against Your Enrolment Funnel
+# Your website is working against your enrolment funnel
 
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-top:0.5rem">
+<div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:0.5rem">
 
-<ContentCard title="The split students feel but can't see" color="#582873">
-The site is divided between two sub-sites with different owners and different agendas — students bear the cost of that division.
-</ContentCard>
+<LabeledRow label="Study sub-site" sublabel="Marketing-owned" :gradient="['#5990F0','#4EC7EA']">
+  <ContentCard style="width:100%" title="Conversion-focused, brand-consistent" color="#5990F0" badge="MARKETING">
+    Clear structure and on-brand messaging — but covers only part of what prospective students need to know.
+  </ContentCard>
+</LabeledRow>
 
-<ContentCard title="Invisible seams, real confusion" color="#D30C55">
-Students cross between these environments without knowing it — hitting inconsistent layouts, different terminology, content never written for them.
-</ContentCard>
+<LabeledRow label="Explore sub-site" sublabel="School / Faculty-owned" :gradient="['#B01C87','#582873']">
+  <ContentCard style="width:100%" title="Deep content, inconsistent experience" color="#B01C87" badge="EACH SCHOOL">
+    Every faculty maintains it differently. No unified voice, no student-facing logic. Students don't know they've crossed into a different environment — they just feel the drop.
+  </ContentCard>
+</LabeledRow>
 
-<ContentCard title="Study sub-site — Marketing-owned" color="#5990F0">
-Conversion-focused and brand-consistent — but covers only part of the picture.
-</ContentCard>
-
-<ContentCard title="The structural result" color="#D40E8C">
-Navigation that maps to Murdoch's internal ownership structure — not how a prospective student thinks about their choices.
-</ContentCard>
-
-<ContentCard title="Explore sub-site — School/Faculty-owned" color="#B01C87">
-Deep course content — but every school maintains it differently. No unified voice or student-facing logic.
-</ContentCard>
-
-<ContentCard title="Every unanswered question" color="#D30C55">
-Erodes confidence in Murdoch. That erosion is structural, not incidental.
-</ContentCard>
+<LabeledRow label="The result" sublabel="Students bear the cost" :gradient="['#D30C55','#B01C87']">
+  <ContentCard style="width:100%" title="Navigation that maps to org structure — not how students think" color="#D30C55" badge="THE PROBLEM">
+    Every unanswered question erodes confidence in Murdoch. That erosion is structural, not incidental.
+  </ContentCard>
+</LabeledRow>
 
 </div>
 
-<div style="margin-top:0.5rem;font-size:0.65rem;color:var(--text-muted);font-style:italic">[ Insert: side-by-side Study vs Explore page — annotated with ownership labels ]</div>
 
 ---
 layout: cards-vertical
@@ -105,7 +99,7 @@ variant: 2
 
 ::header::
 
-# Three Cohorts, One Problem
+# Three cohorts, one problem
 
 ::card1::
 
@@ -131,46 +125,31 @@ International students and career changers navigating complex pathway informatio
 
 </ContentCard>
 
-<div style="font-size:0.65rem;color:var(--text-muted);font-style:italic;margin-top:0.5rem">[ Insert: journey map showing drop-off points between awareness and enquiry stages ]</div>
 
 ---
-layout: two-cols
-variant: 4
+layout: default
+variant: 5
 ---
 
-::header::
+# This cohort has already moved on from your website
 
-# This Cohort Has Already Moved On From Your Website
+<div style="display:flex;gap:0.6rem;margin-top:1rem">
 
-::left::
+<StatCard value="2 in 3" label="prospective students prefer AI-powered search over Google when researching universities" :gradient="['#D30C55','#B01C87']" />
 
-<div style="display:flex;flex-direction:column;gap:1rem">
-
-<div style="background:var(--surface);border-radius:0.5rem;padding:1.25rem;border-top:4px solid #D30C55">
-  <div style="font-size:3.5rem;font-weight:700;color:#D30C55;line-height:1">2 in 3</div>
-  <div style="font-size:0.82rem;margin:0.4rem 0;line-height:1.4">prospective students prefer AI-powered search over Google when researching universities</div>
-  <div style="font-size:0.65rem;color:var(--text-muted);font-style:italic">Everspring, 2025 — 450,000+ student search sessions</div>
-</div>
-
-<div style="background:var(--surface);border-radius:0.5rem;padding:1.25rem;border-top:4px solid #5990F0">
-  <div style="font-size:3rem;font-weight:700;color:#5990F0;line-height:1">4% → 23%</div>
-  <div style="font-size:0.82rem;margin:0.4rem 0;line-height:1.4">high school seniors using AI to research universities (2023 → 2025)</div>
-  <div style="font-size:0.65rem;color:var(--text-muted);font-style:italic">Carnegie College Choice Trends Report, 2025 — six-fold growth in two years</div>
-</div>
+<StatCard value="4% → 23%" label="high school seniors using AI to research universities (2023 → 2025) — six-fold growth in two years" :gradient="['#5990F0','#582873']" />
 
 </div>
 
-::right::
+<div style="margin-top:0.75rem">
 
-<ContentCard title="What This Means for Murdoch" color="#582873" badge="IMPLICATION">
+<CalloutBar label="IMPLICATION" color="#582873">
+  Education is the <strong>second-highest category</strong> for traffic referred by AI tools. This cohort is not waiting for universities to catch up. <strong>The question is whether Murdoch's answers are the ones being surfaced.</strong>
+</CalloutBar>
 
-Education is the **second-highest category** for traffic referred by AI tools — behind only online services.
+</div>
 
-This cohort is not waiting for universities to catch up. They are already asking AI what Murdoch offers, how to get in, and how it compares.
-
-**The question is whether Murdoch's answers are the ones being surfaced.**
-
-</ContentCard>
+<div style="margin-top:0.5rem;font-size:0.6rem;color:var(--text-muted);font-style:italic">Everspring, 2025 — 450,000+ student search sessions &nbsp;|&nbsp; Carnegie College Choice Trends Report, 2025</div>
 
 ---
 layout: section
@@ -181,48 +160,54 @@ background: gradient
 # The Solution
 
 ---
+layout: default
+variant: 4
+---
+
+# What a guided conversation changes
+
+<TransformationFlow
+  hub-label="AI"
+  :hub-colors="['#582873','#D40E8C','#D30C55']"
+  :hub-size="5.5"
+  :rows="[
+    { left: 'Questions go unanswered', right: 'Instant, accurate answers', color: '#D30C55', leftSub: 'Information scattered across two sub-sites', rightSub: 'Courses, fees, entry requirements & pathways' },
+    { left: 'Same response to everyone', right: 'Cohort-aware conversations', color: '#582873', leftSub: 'No signal Murdoch understands their context', rightSub: 'School leaver vs mature-age vs international' },
+    { left: 'Students bounce to competitors', right: 'Intent captured, conversion started', color: '#D40E8C', leftSub: 'First to answer wins the consideration set', rightSub: 'Application links, tour bookings, advisor handoff', rightBadge: 'ACTION' },
+  ]"
+/>
+
+---
 layout: two-cols
 variant: 2
 ---
 
 ::header::
 
-# What We've Built
+# What we've built
 
 ::left::
 
-A working AI agent — built on Claude Sonnet, trained on Murdoch-specific content — that answers the questions prospective students are actually asking, at the moment they need answers.
+<p style="font-size:0.78rem;line-height:1.5;margin:0 0 0.5rem">A working AI agent — built on Claude Sonnet, trained on Murdoch-specific content — ready to answer prospective student questions in real time.</p>
 
-<div style="margin-top:0.75rem;display:flex;flex-direction:column;gap:0.4rem">
+<div style="display:flex;flex-direction:column;gap:0.2rem">
 
-<div style="display:flex;gap:0.5rem;align-items:flex-start;font-size:0.78rem">
-  <Pill label="Real-time" color="#582873" />
-  <span>Streams responses across courses, pathways, fees, entry requirements, and campus life</span>
-</div>
-<div style="display:flex;gap:0.5rem;align-items:flex-start;font-size:0.78rem">
-  <Pill label="Adaptive" color="#D40E8C" />
-  <span>Responds differently to school leavers vs mature-age students — cohort-aware</span>
-</div>
-<div style="display:flex;gap:0.5rem;align-items:flex-start;font-size:0.78rem">
-  <Pill label="Contextual" color="#5990F0" />
-  <span>Maintains conversation context — students don't repeat themselves</span>
-</div>
-<div style="display:flex;gap:0.5rem;align-items:flex-start;font-size:0.78rem">
-  <Pill label="Actionable" color="#B01C87" />
-  <span>Surfaces next steps: application links, tour bookings, advisor handoff</span>
-</div>
-<div style="display:flex;gap:0.5rem;align-items:flex-start;font-size:0.78rem">
-  <Pill label="On-brand" color="#582873" />
-  <span>Deployed within the Murdoch brand system — looks and sounds like Murdoch</span>
-</div>
+<CalloutBar label="REAL-TIME" color="#582873">Streams responses across courses, pathways, fees, entry requirements, and campus life</CalloutBar>
+
+<CalloutBar label="ADAPTIVE" color="#D40E8C">Responds differently to school leavers vs mature-age students — cohort-aware</CalloutBar>
+
+<CalloutBar label="CONTEXTUAL" color="#5990F0">Maintains conversation context — students don't repeat themselves</CalloutBar>
+
+<CalloutBar label="ACTIONABLE" color="#B01C87">Surfaces next steps: application links, tour bookings, advisor handoff</CalloutBar>
+
+<CalloutBar label="ON-BRAND" color="#D30C55">Deployed within the Murdoch brand system — looks and sounds like Murdoch</CalloutBar>
 
 </div>
 
 ::right::
 
-<div style="height:100%;background:var(--surface);border:1.5px dashed var(--border);border-radius:0.5rem;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;color:var(--text-muted);font-size:0.72rem;font-style:italic">
-  [ Murdoch AI agent prototype — chat interface screenshot ]<br><br>
-  <span style="font-size:0.6rem">Show a realistic exchange: student asking about entry requirements or course options with agent response visible</span>
+<div style="height:100%;border-radius:0.5rem;overflow:hidden;display:flex;align-items:flex-start;justify-content:center">
+  <img src="/chat-example.png" style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:0.5rem" />
 </div>
 
 ---
@@ -230,7 +215,7 @@ layout: cover
 background: gradient
 ---
 
-# Live Demonstration
+# Live demonstration
 
 Walking through a live session — showing how the agent handles the queries your prospective students are actually asking.
 
@@ -244,7 +229,7 @@ number: "03"
 background: gradient
 ---
 
-# From PoC to Production
+# From PoC to production
 
 ---
 layout: two-cols
@@ -253,27 +238,54 @@ variant: 2
 
 ::header::
 
-# A Knowledge Platform, Not a Chatbot
+# A knowledge platform, not a chatbot
 
-The prototype draws from a curated knowledge base. The production platform connects to authoritative source systems — live data, governed access, no manual updates required.
+The prototype draws from Murdoch's website content. A production platform would connect to authoritative source systems — live data, governed access, no manual updates required.
 
 ::left::
 
-| Source System | What It Enables |
-|---|---|
-| Course Management | Live catalogue, units, prerequisites, fees |
-| Admissions / SMS | Entry requirements, ATAR cutoffs, application status |
-| Scholarship Database | Eligibility criteria, deadlines, award amounts |
-| RPL / Credit Transfer | Prior learning rules, credit mapping |
-| International Office | Visa pathways, English requirements, CRICOS |
-| Events & Campus | Open days, tours, orientation, accommodation |
-| CRM (Salesforce) | Interaction history, lead status, advisor assignment |
+<table style="width:100%;border-collapse:collapse;font-size:0.72rem;margin-top:0.5rem">
+  <thead>
+    <tr>
+      <th style="text-align:left;padding:0.35rem 0;padding-right:2rem;font-weight:700;border-bottom:2px solid #582873;white-space:nowrap">Source System</th>
+      <th style="text-align:left;padding:0.35rem 0;font-weight:700;border-bottom:2px solid #582873">What It Enables</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td style="padding:0.3rem 0;padding-right:2rem;white-space:nowrap;font-weight:600;vertical-align:top">Course Management System</td><td style="padding:0.3rem 0;vertical-align:top">Live catalogue, units, prerequisites, fees</td></tr>
+    <tr><td style="padding:0.3rem 0;padding-right:2rem;white-space:nowrap;font-weight:600;vertical-align:top">Admissions & Enrolment</td><td style="padding:0.3rem 0;vertical-align:top">Entry requirements, ATAR cutoffs, application status</td></tr>
+    <tr><td style="padding:0.3rem 0;padding-right:2rem;white-space:nowrap;font-weight:600;vertical-align:top">Scholarships & Financial Aid</td><td style="padding:0.3rem 0;vertical-align:top">Eligibility criteria, deadlines, award amounts</td></tr>
+    <tr><td style="padding:0.3rem 0;padding-right:2rem;white-space:nowrap;font-weight:600;vertical-align:top">RPL & Credit Transfer</td><td style="padding:0.3rem 0;vertical-align:top">Credit recognition pathways and assessment rules</td></tr>
+    <tr><td style="padding:0.3rem 0;padding-right:2rem;white-space:nowrap;font-weight:600;vertical-align:top">International Admissions</td><td style="padding:0.3rem 0;vertical-align:top">Visa pathways, English requirements, CRICOS</td></tr>
+    <tr><td style="padding:0.3rem 0;padding-right:2rem;white-space:nowrap;font-weight:600;vertical-align:top">Campus & Events</td><td style="padding:0.3rem 0;vertical-align:top">Open days, tours, orientation, accommodation</td></tr>
+    <tr><td style="padding:0.3rem 0;padding-right:2rem;white-space:nowrap;font-weight:600;vertical-align:top">CRM / Enquiry System</td><td style="padding:0.3rem 0;vertical-align:top">Enquiry history, lead tracking, advisor workflows</td></tr>
+  </tbody>
+</table>
 
 ::right::
 
-<div style="height:100%;background:var(--surface);border:1.5px dashed var(--border);border-radius:0.5rem;display:flex;align-items:center;justify-content:center;text-align:center;padding:1rem;color:var(--text-muted);font-size:0.72rem;font-style:italic">
-  [ Architecture diagram ]<br>Data sources → Knowledge Platform → Agent<br><br>
-  <span style="font-size:0.6rem">Three-layer diagram. No vendor logos. Murdoch brand colours.</span>
+<div class="arch-diagram" style="display:flex;flex-direction:column;height:100%;justify-content:center;gap:0">
+
+  <ContentCard title="Data Sources" badge="LAYER 1" color="#5990F0" :pills="['Website', 'Course system', 'Admissions', 'Scholarships', 'CRM']">
+    Authoritative content and student data
+  </ContentCard>
+
+  <div style="display:flex;justify-content:center;padding:0.15rem 0">
+    <div style="width:2px;height:1rem;background:linear-gradient(to bottom,#5990F0,#D40E8C);border-radius:1px"></div>
+  </div>
+
+  <ContentCard title="Knowledge Platform" badge="LAYER 2" color="#D40E8C" :pills="['Ingest', 'Embed', 'Retrieve', 'Govern']">
+    Semantic search, grounding and governance
+  </ContentCard>
+
+  <div style="display:flex;justify-content:center;padding:0.15rem 0">
+    <div style="width:2px;height:1rem;background:linear-gradient(to bottom,#D40E8C,#582873);border-radius:1px"></div>
+  </div>
+
+  <ContentCard title="Agent Interface" badge="LAYER 3" color="#582873" :pills="['Converse', 'Adapt', 'Escalate', 'Analyse']">
+    Cohort-aware AI — action-oriented responses
+  </ContentCard>
+
 </div>
 
 ---
@@ -283,7 +295,7 @@ variant: 2
 
 ::header::
 
-# Production-Grade From Day One
+# Production-grade from day one
 
 ::col1::
 
@@ -326,42 +338,40 @@ background: gradient
 # The Strategic Case
 
 ---
-layout: two-cols
+layout: default
 variant: 2
 ---
 
-::header::
+# One capability, two strategic lenses
 
-# One Capability, Two Strategic Lenses
-
-::left::
-
-<ContentCard title="The Marketing & Conversion Case" badge="MARKETING" color="#D30C55">
-
-Murdoch's marketing investment drives traffic to a website that loses prospects before they convert. Every dollar spent on brand, search, and social is partially wasted at the point of information-seeking.
-
-The AI agent is a **conversion layer** — it captures intent at peak engagement and converts it into action.
-
-When a prospective student gets a clear, confident answer at 10pm on a Sunday while filling out a comparison spreadsheet, that matters. **The competitor who answers first wins the consideration set.**
-
-Every question asked is a signal about what students don't understand, where the narrative breaks down, what content is missing. That feedback loop is currently invisible. The agent makes it explicit.
-
-</ContentCard>
-
-::right::
-
-<ContentCard title="The Architecture & Platform Case" badge="ARCHITECTURE" color="#582873">
-
-This is not a bolt-on chatbot. The architecture is built for institutional scale:
-
-- **Model-agnostic API layer** — updated as capabilities improve without rebuilding
-- **Separated knowledge layer** — content teams update without engineering involvement
-- **Integration-ready** — CRM, application systems, and advisor queues via standard APIs
-- **Audit trail built in** — conversation logging for compliance and performance review
-- **Flexible deployment** — embedded widget, standalone page, or mobile-first interface
-- **Murdoch-owned architecture** — no vendor lock-in
-
-</ContentCard>
+<SplitPanel
+  left-label="MARKETING"
+  left-title="The Marketing & Conversion Case"
+  left-description="Marketing investment drives traffic to a site that loses prospects before they convert. The AI agent is a conversion layer — it captures intent at peak engagement and turns it into action. Every question asked is also a signal about what students don't understand. That feedback loop is currently invisible."
+  right-label="ARCHITECTURE"
+  right-title="The Architecture & Platform Case"
+  right-description="This is not a bolt-on chatbot. The architecture is built for institutional scale — model-agnostic, separated knowledge layer, integration-ready, and Murdoch-owned. No vendor lock-in. Content teams update without engineering involvement."
+  left-accent="#D30C55"
+  right-accent="#582873"
+  :connector-gradient="['#D30C55','#582873']"
+>
+  <template #left>
+    <div style="display:flex;flex-direction:column;gap:0.3rem;margin-top:0.5rem">
+      <Pill label="Conversion layer" color="#D30C55" />
+      <Pill label="Intent at peak engagement" color="#D30C55" />
+      <Pill label="Visible feedback loop" color="#D30C55" />
+      <Pill label="First to answer wins" color="#D30C55" />
+    </div>
+  </template>
+  <template #right>
+    <div style="display:flex;flex-direction:column;gap:0.3rem;margin-top:0.5rem">
+      <Pill label="Model-agnostic API layer" color="#dddddd" />
+      <Pill label="Separated knowledge layer" color="#dddddd" />
+      <Pill label="CRM & systems integration" color="#dddddd" />
+      <Pill label="No vendor lock-in" color="#dddddd" />
+    </div>
+  </template>
+</SplitPanel>
 
 ---
 layout: section
@@ -369,7 +379,7 @@ number: "05"
 background: gradient
 ---
 
-# Why Now
+# Why Now?
 
 ---
 layout: cards-horizontal
@@ -378,7 +388,7 @@ variant: 2
 
 ::header::
 
-# The Window Is Open — Briefly
+# The window is open — briefly
 
 ::card1::
 
@@ -421,105 +431,67 @@ background: gradient
 # The Roadmap
 
 ---
-layout: default
-variant: 2
+layout: swimlane
+periods: ['W1–2', 'W3–4', 'W5–6', 'W7–8', 'W9–12', 'W13–16', 'W17–20', 'Scale']
+lanes:
+  - name: Knowledge
+    color: '#D30C55'
+    items:
+      - label: Website & course content
+        start: 0
+        end: 4
+      - label: Admissions, scholarships & RPL
+        start: 4
+        end: 7
+      - label: Live data feeds
+        start: 7
+        end: 8
+  - name: Agent
+    color: '#582873'
+    items:
+      - label: Deploy to staging
+        start: 0
+        end: 4
+      - label: Multi-cohort flows
+        start: 4
+        end: 7
+      - label: Full journey coverage
+        start: 7
+        end: 8
+  - name: Integration
+    color: '#D40E8C'
+    items:
+      - label: Advisor handoff
+        start: 0
+        end: 4
+      - label: CRM & lead capture
+        start: 4
+        end: 7
+      - label: Bookings & applications
+        start: 7
+        end: 8
+  - name: Operations
+    color: '#5990F0'
+    items:
+      - label: Analytics dashboard
+        start: 0
+        end: 4
+      - label: Staff training
+        start: 4
+        end: 7
+      - label: Continuous improvement
+        start: 7
+        end: 8
+milestones:
+  - label: Pilot Live
+    at: 4
+    color: '#D30C55'
+  - label: Full Coverage
+    at: 7
+    color: '#582873'
 ---
 
-# Phased Engagement Roadmap
-
-<table style="width:100%;border-collapse:collapse;font-size:0.72rem;margin-top:0.5rem">
-  <thead>
-    <tr>
-      <th style="width:11%;background:#212121;color:white;padding:0.4rem 0.5rem;text-align:left;font-size:0.68rem">Lane</th>
-      <th style="background:#D30C55;color:white;padding:0.4rem 0.5rem;text-align:left;font-size:0.68rem">Phase 1 — Prove &nbsp;<span style="font-weight:400;opacity:0.85">Weeks 1–8</span></th>
-      <th style="background:#582873;color:white;padding:0.4rem 0.5rem;text-align:left;font-size:0.68rem">Phase 2 — Federate &nbsp;<span style="font-weight:400;opacity:0.85">Weeks 9–20</span></th>
-      <th style="background:#D40E8C;color:white;padding:0.4rem 0.5rem;text-align:left;font-size:0.68rem">Phase 3 — Scale &nbsp;<span style="font-weight:400;opacity:0.85">Ongoing</span></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="font-weight:600;font-size:0.68rem;background:#f5f5f5;padding:0.4rem 0.5rem">Knowledge</td>
-      <td style="background:#fde8ed;padding:0.4rem 0.5rem;border-bottom:1px solid #e0e0e0">Build knowledge base from Murdoch website & course content</td>
-      <td style="background:#ede8f5;padding:0.4rem 0.5rem;border-bottom:1px solid #e0e0e0">Connect admissions, scholarships & RPL data sources</td>
-      <td style="background:#fde8f7;padding:0.4rem 0.5rem;border-bottom:1px solid #e0e0e0">Live data feeds & continuous updates</td>
-    </tr>
-    <tr>
-      <td style="font-weight:600;font-size:0.68rem;background:#f5f5f5;padding:0.4rem 0.5rem">Agent</td>
-      <td style="background:#fde8ed;padding:0.4rem 0.5rem;border-bottom:1px solid #e0e0e0">Deploy production agent to staging environment</td>
-      <td style="background:#ede8f5;padding:0.4rem 0.5rem;border-bottom:1px solid #e0e0e0">Multi-cohort conversation flows & personalisation</td>
-      <td style="background:#fde8f7;padding:0.4rem 0.5rem;border-bottom:1px solid #e0e0e0">Full journey coverage & authenticated access</td>
-    </tr>
-    <tr>
-      <td style="font-weight:600;font-size:0.68rem;background:#f5f5f5;padding:0.4rem 0.5rem">Integration</td>
-      <td style="background:#fde8ed;padding:0.4rem 0.5rem;border-bottom:1px solid #e0e0e0">Advisor handoff protocol for complex queries</td>
-      <td style="background:#ede8f5;padding:0.4rem 0.5rem;border-bottom:1px solid #e0e0e0">CRM integration & lead capture pipeline</td>
-      <td style="background:#fde8f7;padding:0.4rem 0.5rem;border-bottom:1px solid #e0e0e0">Booking systems & application tracking</td>
-    </tr>
-    <tr>
-      <td style="font-weight:600;font-size:0.68rem;background:#f5f5f5;padding:0.4rem 0.5rem">Operations</td>
-      <td style="background:#fde8ed;padding:0.4rem 0.5rem">Analytics dashboard & baseline metrics</td>
-      <td style="background:#ede8f5;padding:0.4rem 0.5rem">Staff training & escalation workflows</td>
-      <td style="background:#fde8f7;padding:0.4rem 0.5rem">Continuous improvement & A/B testing loop</td>
-    </tr>
-  </tbody>
-</table>
-
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;margin-top:0.4rem;text-align:center;font-size:0.65rem;font-weight:600;color:var(--text-muted)">
-  <div>▲ Pilot Live</div>
-  <div>▲ Full Cohort Coverage</div>
-  <div>▲ Continuous Optimisation</div>
-</div>
-
----
-layout: three-cols
-variant: 2
----
-
-::header::
-
-# From Pilot to Platform
-
-::col1::
-
-<ContentCard title="Phase 1 — Prove" badge="8 WEEKS" color="#D30C55" :pills="['School leavers', 'Course discovery', 'Entry requirements']">
-
-**Focus:** Highest-friction section of the prospective student journey. Website and course system as knowledge sources.
-
-**Deliverables:**
-- Production agent deployed to staging
-- Knowledge base from Murdoch content
-- Analytics dashboard: volume, topics, escalations
-- Advisor handoff protocol
-
-</ContentCard>
-
-::col2::
-
-<ContentCard title="Phase 2 — Federate" badge="10–12 WEEKS" color="#582873" :pills="['All cohorts', 'CRM', 'Admissions & RPL']">
-
-**Focus:** Connect admissions, scholarships, and RPL data sources. Expand to mature-age and international cohorts.
-
-**Deliverables:**
-- Federated knowledge platform (4 source systems)
-- CRM integration & lead capture pipeline
-- Multi-cohort conversation coverage
-- Staff training & escalation workflows
-
-</ContentCard>
-
-::col3::
-
-<ContentCard title="Phase 3 — Scale" badge="ONGOING" color="#D40E8C" :pills="['Full journey', 'Bookings', 'Multi-language']">
-
-**Focus:** Full prospective journey coverage. Authenticated access for returning applicants. Booking integrations.
-
-**Deliverables:**
-- Full production platform
-- Application tracking integration
-- Campus booking integration
-- Optimisation loop from live conversation data
-
-</ContentCard>
+# Phased engagement roadmap
 
 ---
 layout: two-cols
@@ -528,34 +500,64 @@ variant: 2
 
 ::header::
 
-# A Clear Commitment to a Defined Scope
+# From pilot to platform
 
 ::left::
 
-<ContentCard title="What We Bring" badge="FROM US" color="#582873" :pills="['Expertise', 'Prototype', 'Evidence']">
-
-- AI product expertise and a track record of deployment at institutional scale
-- Established integration patterns for university systems (admissions, CRM, LMS)
-- A working prototype — not a proposal, a product ready to demonstrate today
-- Research evidence that makes this evidence-led from day one
-- An architecture that Murdoch owns and controls
-
-</ContentCard>
+<VerticalTimeline :steps="[
+  { timeframe: 'Phase 1 — Weeks 1–8', title: 'Prove', description: 'School leaver cohort. Course discovery & entry requirements. Knowledge base built from Murdoch website content. Analytics dashboard baseline.', color: '#D30C55' },
+  { timeframe: 'Phase 2 — Weeks 9–20', title: 'Federate', description: 'All cohorts. Connect admissions, scholarships & RPL data sources. CRM integration & lead capture. Multi-cohort conversation flows.', color: '#582873' },
+  { timeframe: 'Phase 3 — Ongoing', title: 'Scale', description: 'Full prospective journey coverage. Authenticated access for returning applicants. Booking & application tracking integrations.', color: '#D40E8C' },
+]" />
 
 ::right::
 
-<ContentCard title="What We're Asking For" badge="FROM YOU" color="#D30C55" :pills="['Phase 1', '8 weeks', 'Defined scope']">
+<ContentCard title="Shared Success Criteria" badge="AGREED UPFRONT" color="#582873">
 
-**A commitment to Phase 1:**
-
-- Eight weeks
-- Defined scope: course discovery & entry requirements, school leaver cohort
-- Shared success criteria agreed upfront: engagement rates, conversion indicators, advisor deflection
-- Access to course content and admissions data for knowledge base construction
-
-*This is not a multi-year transformation program. It is eight weeks to prove the concept works — with Murdoch's students, on Murdoch's website, with Murdoch's data.*
+- Engagement rate: sessions, session length, return rate
+- Conversion indicators: application page visits post-chat
+- Advisor deflection: % of queries resolved without escalation
+- Content gap identification: questions the agent cannot answer
+- Student satisfaction score
 
 </ContentCard>
+
+---
+layout: default
+variant: 2
+---
+
+# A clear commitment to a defined scope
+
+<SplitPanel
+  left-label="FROM US"
+  left-title="What we bring"
+  left-description="AI product expertise, a working prototype ready to demonstrate today, and an architecture Murdoch owns and controls. Not a proposal — a product."
+  right-label="FROM YOU"
+  right-title="What we're asking for"
+  right-description="A commitment to Phase 1 — eight weeks, defined scope, success criteria agreed upfront. Not a multi-year transformation. Eight weeks to prove the concept works with Murdoch's students, on Murdoch's website, with Murdoch's data."
+  left-accent="rgba(255,255,255,0.75)"
+  right-accent="#D30C55"
+  :connector-gradient="['#582873','#D30C55']"
+>
+  <template #left>
+    <div style="display:flex;flex-direction:column;gap:0.3rem;margin-top:0.5rem">
+      <Pill label="AI product expertise" color="#9A6BC4" />
+      <Pill label="Institutional-scale track record" color="#9A6BC4" />
+      <Pill label="Working prototype — today" color="#9A6BC4" />
+      <Pill label="Evidence-led from day one" color="#9A6BC4" />
+      <Pill label="Murdoch-owned architecture" color="#9A6BC4" />
+    </div>
+  </template>
+  <template #right>
+    <div style="display:flex;flex-direction:column;gap:0.3rem;margin-top:0.5rem">
+      <Pill label="Eight weeks" color="#D30C55" />
+      <Pill label="Course discovery scope" color="#D30C55" />
+      <Pill label="Success criteria upfront" color="#D30C55" />
+      <Pill label="Course & admissions data access" color="#D30C55" />
+    </div>
+  </template>
+</SplitPanel>
 
 ---
 layout: quote
@@ -580,28 +582,28 @@ layout: default
 variant: 2
 ---
 
-# Research Evidence Summary
+# Research evidence summary
 
 <Badge label="APPENDIX A" variant="subtle" color="#582873" />
 
-<table style="width:100%;border-collapse:collapse;font-size:0.7rem;margin-top:0.6rem">
+<table style="width:100%;border-collapse:collapse;font-size:0.58rem;margin-top:0.5rem">
   <thead>
     <tr>
-      <th style="background:#212121;color:white;padding:0.4rem 0.6rem;text-align:left;width:22%">Source</th>
-      <th style="background:#212121;color:white;padding:0.4rem 0.6rem;text-align:left">Key Finding</th>
+      <th style="text-align:left;padding:0.3rem 0.5rem;background:#1a1520;color:white;width:18%">Source</th>
+      <th style="text-align:left;padding:0.3rem 0.5rem;background:#1a1520;color:white">Key Finding</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td style="font-weight:600;padding:0.35rem 0.6rem;background:#f5f5f5;border-bottom:1px solid #e0e0e0">UX Audit</td><td style="padding:0.35rem 0.6rem;background:#f5f5f5;border-bottom:1px solid #e0e0e0">Navigation maps to internal org structure, not student mental models. Core information consistently difficult to locate.</td></tr>
-    <tr><td style="font-weight:600;padding:0.35rem 0.6rem;border-bottom:1px solid #e0e0e0">UX Audit</td><td style="padding:0.35rem 0.6rem;border-bottom:1px solid #e0e0e0">Study sub-site (Marketing) and Explore sub-site (Schools) operate as separate environments — inconsistent layouts, terminology, depth. Students hit a jarring drop in coherence when crossing between them.</td></tr>
-    <tr><td style="font-weight:600;padding:0.35rem 0.6rem;background:#f5f5f5;border-bottom:1px solid #e0e0e0">UX Audit</td><td style="padding:0.35rem 0.6rem;background:#f5f5f5;border-bottom:1px solid #e0e0e0">Mobile experience falls significantly below expectation for a primarily mobile-first cohort.</td></tr>
-    <tr><td style="font-weight:600;padding:0.35rem 0.6rem;border-bottom:1px solid #e0e0e0">School Leaver Research</td><td style="padding:0.35rem 0.6rem;border-bottom:1px solid #e0e0e0">Students compare 3–5 institutions simultaneously. Whoever answers their question first, clearly, wins.</td></tr>
-    <tr><td style="font-weight:600;padding:0.35rem 0.6rem;background:#f5f5f5;border-bottom:1px solid #e0e0e0">School Leaver Research</td><td style="padding:0.35rem 0.6rem;background:#f5f5f5;border-bottom:1px solid #e0e0e0">Interviewees expressed clear preference for immediate, conversational answers. One participant named AI as their preferred channel over live chat and email — consistent with broader industry research.</td></tr>
-    <tr><td style="font-weight:600;padding:0.35rem 0.6rem;border-bottom:1px solid #e0e0e0">Everspring (2025)</td><td style="padding:0.35rem 0.6rem;border-bottom:1px solid #e0e0e0">2 in 3 prospective students prefer AI-powered search over Google. Education is 2nd highest category for AI-referred traffic. (450,000+ search sessions analysed)</td></tr>
-    <tr><td style="font-weight:600;padding:0.35rem 0.6rem;background:#f5f5f5;border-bottom:1px solid #e0e0e0">Carnegie (2025)</td><td style="padding:0.35rem 0.6rem;background:#f5f5f5;border-bottom:1px solid #e0e0e0">High school seniors using AI to research universities: 4% (2023) → 23% (2025). Six-fold growth in two years.</td></tr>
-    <tr><td style="font-weight:600;padding:0.35rem 0.6rem;border-bottom:1px solid #e0e0e0">Mature-Age Research</td><td style="padding:0.35rem 0.6rem;border-bottom:1px solid #e0e0e0">Site does not signal that Murdoch understands returning students' specific circumstances or anxieties.</td></tr>
-    <tr><td style="font-weight:600;padding:0.35rem 0.6rem;background:#f5f5f5;border-bottom:1px solid #e0e0e0">Growth Learner Research</td><td style="padding:0.35rem 0.6rem;background:#f5f5f5;border-bottom:1px solid #e0e0e0">Pathway information is fragmented across disconnected pages. High cognitive load, high-stakes decision.</td></tr>
-    <tr><td style="font-weight:600;padding:0.35rem 0.6rem">Journey Map</td><td style="padding:0.35rem 0.6rem">Multiple drop-off points between awareness and enquiry — each a recoverable conversion currently being lost.</td></tr>
+    <tr style="background:#f5f5f5"><td style="padding:0.28rem 0.5rem;font-weight:600;vertical-align:top;border-bottom:1px solid #e0e0e0">UX Audit</td><td style="padding:0.28rem 0.5rem;border-bottom:1px solid #e0e0e0">Navigation maps to internal org structure, not student mental models. Core information consistently difficult to locate.</td></tr>
+    <tr><td style="padding:0.28rem 0.5rem;font-weight:600;vertical-align:top;border-bottom:1px solid #e0e0e0">UX Audit</td><td style="padding:0.28rem 0.5rem;border-bottom:1px solid #e0e0e0">Study sub-site (Marketing) and Explore sub-site (Schools) operate as separate environments — inconsistent layouts, terminology, depth. Students hit a jarring drop in coherence when crossing between them.</td></tr>
+    <tr style="background:#f5f5f5"><td style="padding:0.28rem 0.5rem;font-weight:600;vertical-align:top;border-bottom:1px solid #e0e0e0">UX Audit</td><td style="padding:0.28rem 0.5rem;border-bottom:1px solid #e0e0e0">Mobile experience falls significantly below expectation for a primarily mobile-first cohort.</td></tr>
+    <tr><td style="padding:0.28rem 0.5rem;font-weight:600;vertical-align:top;border-bottom:1px solid #e0e0e0">School Leaver Research</td><td style="padding:0.28rem 0.5rem;border-bottom:1px solid #e0e0e0">Students compare 3–5 institutions simultaneously. Whoever answers their question first, clearly, wins.</td></tr>
+    <tr style="background:#f5f5f5"><td style="padding:0.28rem 0.5rem;font-weight:600;vertical-align:top;border-bottom:1px solid #e0e0e0">School Leaver Research</td><td style="padding:0.28rem 0.5rem;border-bottom:1px solid #e0e0e0">Interviewees expressed clear preference for immediate, conversational answers. One participant named AI as their preferred channel — consistent with broader industry research.</td></tr>
+    <tr><td style="padding:0.28rem 0.5rem;font-weight:600;vertical-align:top;border-bottom:1px solid #e0e0e0"><a href="https://www.everspringpartners.com/insights/reports-and-briefs/ai-trends-enrollment-impact#form" target="_blank" style="color:#582873;text-decoration:underline">Everspring (2025)</a></td><td style="padding:0.28rem 0.5rem;border-bottom:1px solid #e0e0e0">2 in 3 prospective students prefer AI-powered search over Google. Education is 2nd highest category for AI-referred traffic. (450,000+ sessions analysed)</td></tr>
+    <tr style="background:#f5f5f5"><td style="padding:0.28rem 0.5rem;font-weight:600;vertical-align:top;border-bottom:1px solid #e0e0e0"><a href="https://www.carnegiehighered.com/wp-content/uploads/2025/08/Carnegie_Summer-Research-Series-AI-Use-College-Search-2025.pdf" target="_blank" style="color:#582873;text-decoration:underline">Carnegie (2025)</a></td><td style="padding:0.28rem 0.5rem;border-bottom:1px solid #e0e0e0">High school seniors using AI to research universities: 4% (2023) → 23% (2025). Six-fold growth in two years.</td></tr>
+    <tr><td style="padding:0.28rem 0.5rem;font-weight:600;vertical-align:top;border-bottom:1px solid #e0e0e0">Mature-Age Research</td><td style="padding:0.28rem 0.5rem;border-bottom:1px solid #e0e0e0">Site does not signal that Murdoch understands returning students' specific circumstances or anxieties.</td></tr>
+    <tr style="background:#f5f5f5"><td style="padding:0.28rem 0.5rem;font-weight:600;vertical-align:top;border-bottom:1px solid #e0e0e0">Growth Learner Research</td><td style="padding:0.28rem 0.5rem;border-bottom:1px solid #e0e0e0">Pathway information is fragmented across disconnected pages. High cognitive load, high-stakes decision.</td></tr>
+    <tr><td style="padding:0.28rem 0.5rem;font-weight:600;vertical-align:top">Journey Map</td><td style="padding:0.28rem 0.5rem">Multiple drop-off points between awareness and enquiry — each a recoverable conversion currently being lost.</td></tr>
   </tbody>
 </table>
 
@@ -612,7 +614,7 @@ variant: 2
 
 ::header::
 
-# Architecture Overview
+# Architecture overview
 
 <Badge label="APPENDIX B" variant="subtle" color="#582873" />
 
